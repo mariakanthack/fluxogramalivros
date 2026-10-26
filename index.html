@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Finder - Fluxograma Literário</title>
+    <!-- Fonte Inter e Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Header do App -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>Book<span class="highlight">Flow</span></span>
+            </div>
+            <button id="resetAppBtn" class="btn-icon" title="Recomeçar" style="display: none;">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </header>
+
+        <!-- TELA 1: Boas-vindas -->
+        <section id="welcomeScreen" class="screen active">
+            <div class="hero-card">
+                <div class="image-center-wrapper">
+                    <img src="lirvros.jpeg" alt="Ilustração de Livros" class="center-book-image">
+                </div>
+
+                <h1>Descubra Seu Próximo Livro</h1>
+                <p>Responda às perguntas sobre suas preferências de leitura. À medida que você escolhe, um <strong>fluxograma de decisões</strong> será construído em tempo real mapeando a sua jornada até o livro ideal!</p>
+                
+                <button id="startBtn" class="btn-primary main-cta">
+                    <span>Iniciar Teste</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TELA 2: Questionário -->
+        <section id="quizScreen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="questionCounter">Pergunta 1 de 15</span>
+                    <span id="percentCounter">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="questionText">Carregando pergunta...</h2>
+                <div id="optionsContainer" class="options-grid">
+                    <!-- Opções injetadas via JS -->
+                </div>
+            </div>
+
+            <div class="quiz-nav">
+                <button id="prevBtn" class="btn-secondary" disabled>
+                    <i class="fa-solid fa-chevron-left"></i> Voltar
+                </button>
+            </div>
+        </section>
+
+        <!-- TELA 3: Resultado + Fluxograma -->
+        <section id="resultScreen" class="screen">
+            
+            <div class="result-header-badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Sua Recomendação Ideal</span>
+            </div>
+
+            <div class="image-center-wrapper">
+                <img src="lirvros.jpeg" alt="Ilustração de Livros" class="center-book-image">
+            </div>
+
+            <!-- Card do Livro Campeão -->
+            <div class="book-card" id="bookResultCard">
+                <div class="book-badge">Recomendado</div>
+                <div class="book-info">
+                    <span class="genre-tag" id="bookGenre">Gênero</span>
+                    <h2 id="bookTitle">Título do Livro</h2>
+                    <h3 id="bookAuthor">Autor</h3>
+                    <p id="bookDesc" class="book-desc">Descrição do livro...</p>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle"><i class="fa-solid fa-sitemap"></i> Seu Fluxograma de Decisões</h3>
+
+            <!-- Fluxograma Visual -->
+            <div class="flowchart-container">
+                <div id="flowchartNodes" class="flow-nodes-list">
+                    <!-- Nós gerados pelo JS -->
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button id="restartBtn" class="btn-primary">
+                    <i class="fa-solid fa-rotate-left"></i> Fazer Novamente
+                </button>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
